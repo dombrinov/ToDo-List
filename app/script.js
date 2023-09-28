@@ -5,14 +5,22 @@ const ul = document.querySelector(".main__task_create_list");
 const form = document.querySelector(".main__task_form");
 const delAll = document.querySelector(".main__task_delete_all");
 const delCom = document.querySelector(".main__task_delete_completed");
+const delbuttons = document.querySelector(".main__task_delete_hide");
 
 //Добавление в масив задачи
 function addToDo(text) {
-  toDo.push({
-    text: text,
-    id: `id-${Date.now()}`,
-    isDone: false,
-  });
+  if (text !== "" && text.trim().length > 0) {
+    toDo.push({
+      text: text,
+      id: `id-${Date.now()}`,
+      isDone: false,
+    });
+  }
+
+  input.value = "";
+  if (toDo.length > 0) {
+    delbuttons.classList.replace("main__task_delete_hide", "main__task_delete");
+  }
 
   renderTodos(toDo);
 }
@@ -53,18 +61,28 @@ function renderTodos() {
 //delete one task through the button x
 function deleteTodo(id) {
   toDo = toDo.filter((obj) => obj.id !== id);
+  if (toDo.length == 0) {
+    delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
+  }
   renderTodos(toDo);
 }
 
 //delete all tasks
 function deleteAll(arr) {
   toDo = [];
+
+  if (toDo.length == 0) {
+    delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
+  }
   renderTodos(toDo);
 }
 
 //delete complited tasks
 function deleteCompleted(arr) {
   toDo = toDo.filter((obj) => obj.isDone == false);
+  if (toDo.length == 0) {
+    delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
+  }
   renderTodos(toDo);
 }
 

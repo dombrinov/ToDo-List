@@ -180,6 +180,11 @@ legend {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  overflow: scroll;
+  max-height: 400px;
+}
+.main__task_delete_hide {
+  display: none;
 }
 .main__task_delete {
   display: flex;
