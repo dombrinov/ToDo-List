@@ -1,0 +1,260 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #f5f5f5;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+.main {
+  margin-top: 82px;
+}
+.main__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 594px;
+}
+.main__title {
+  color: #000;
+  font-family: Inter;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  align-self: center;
+}
+.main__task {
+  width: 594px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 8px 35px 0px rgba(0, 0, 0, 0.16);
+  margin: 33px auto;
+}
+.main__task_form {
+  padding: 24px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 24px;
+}
+.main__task_form-input {
+  width: 356px;
+  padding: 8px 31px 8px 13px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background: #fff;
+  color: #54595e;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 131.25% */
+}
+.main__task_form-button {
+  width: 166px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: #272829;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+.main__task_create_list {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.main__task_delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px 24px;
+}
+.main__task_delete_completed {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  border-radius: 4px;
+  background: #6c757d;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main__task_delete_all {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  border-radius: 4px;
+  background: #dc3545;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main__task__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-top: 26px;
+}
+.main__task__item_label {
+  width: 455px;
+  word-wrap: break-word;
+  text-align: left;
+  color: #54595e;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+}
+.main__task__item_checkbox {
+  width: 16px;
+  height: 16px;
+}
+.main__task__item_delete {
+  color: red;
+  width: 16px;
+  height: 21px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 131.25% */
+}
+.main__task__item_checkbox:checked ~ .main__task__item_label {
+  color: #54595e;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 131.25% */
+  text-decoration: line-through;
+  opacity: 0.5;
+}/*# sourceMappingURL=style.css.map */

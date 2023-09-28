@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="main">
+        <div class="main__container">
+          <h1 class="main__title">To Do List</h1>
+          <div class="main__task">
+            <form class="main__task_form" action="">
+              <input
+                class="main__task_form-input"
+                type="text"
+                placeholder="Введите задачу"
+              />
+              <button class="main__task_form-button">Добавить</button>
+            </form>
+            <div class="main__task_list"><ul class="main__task_create_list">
+
+            </ul></div>
+            <div class="main__task_delete">
+              <button class="main__task_delete_completed">
+                Удалить завершенные
+              </button>
+              <button class="main__task_delete_all">Удалить все</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./app/script.js"></script>
+  </body>
+</html>
