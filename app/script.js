@@ -1,4 +1,6 @@
-let toDo = [];
+let ARR_TODO = "toDo";
+let toDo = JSON.parse(localStorage.getItem(ARR_TODO)) ?? [];
+
 const input = document.querySelector(".main__task_form-input");
 const btnAdd = document.querySelector(".main__task_form-button");
 const ul = document.querySelector(".main__task_create_list");
@@ -21,9 +23,10 @@ function addToDo(text) {
   if (toDo.length > 0) {
     delbuttons.classList.replace("main__task_delete_hide", "main__task_delete");
   }
-
+  localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
+
 //all Listners here at this place
 input.addEventListener("input", (evt) => evt.target.value);
 btnAdd.addEventListener("click", () => addToDo(input.value));
@@ -56,6 +59,9 @@ function renderTodos() {
   toDo.forEach((obj) => {
     ul.append(createTodo(obj));
   });
+  if (toDo.length > 0) {
+    delbuttons.classList.replace("main__task_delete_hide", "main__task_delete");
+  }
 }
 
 //delete one task through the button x
@@ -64,6 +70,7 @@ function deleteTodo(id) {
   if (toDo.length == 0) {
     delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
   }
+  localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
 
@@ -74,15 +81,17 @@ function deleteAll(arr) {
   if (toDo.length == 0) {
     delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
   }
+  localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
 
-//delete complited tasks
+//delete completed tasks
 function deleteCompleted(arr) {
   toDo = toDo.filter((obj) => obj.isDone == false);
   if (toDo.length == 0) {
     delbuttons.classList.replace("main__task_delete", "main__task_delete_hide");
   }
+  localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
 
@@ -90,6 +99,8 @@ function deleteCompleted(arr) {
 function toggleIsDone(id) {
   let obj = toDo.find((item) => item.id == id);
   obj = obj.isDone = !obj.isDone;
+  localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
-console.log(toDo);
+renderTodos(toDo);
+JSON.parse(localStorage.getItem(ARR_TODO));
