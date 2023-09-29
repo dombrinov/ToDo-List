@@ -24,6 +24,7 @@ function addToDo(text) {
     delbuttons.classList.replace("main__task_delete_hide", "main__task_delete");
   }
   localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
+
   renderTodos(toDo);
 }
 
@@ -40,8 +41,8 @@ delCom.addEventListener("click", () => deleteCompleted(toDo));
 function createTodo({ text, id, isDone }) {
   const li = document.createElement("li");
   li.className = "main__task__item";
-  li.innerHTML = `<input class='main__task__item_checkbox' type="checkbox" name="item"/>
-    <label class='main__task__item_label' for="item">${text}</label>
+  li.innerHTML = `<input id="${id}" class='main__task__item_checkbox' type="checkbox" name="item"/>
+    <label class='main__task__item_label' for="${id}">${text}</label>
   <button class='main__task__item_delete'>❌</button>`;
   // button "delete x"
   const del = li.querySelector(".main__task__item_delete");
@@ -62,6 +63,8 @@ function renderTodos() {
   if (toDo.length > 0) {
     delbuttons.classList.replace("main__task_delete_hide", "main__task_delete");
   }
+
+  ul.scrollTo(0, Number.MIN_SAFE_INTEGER);
 }
 
 //delete one task through the button x
@@ -102,5 +105,6 @@ function toggleIsDone(id) {
   localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
   renderTodos(toDo);
 }
+
 renderTodos(toDo);
 JSON.parse(localStorage.getItem(ARR_TODO));

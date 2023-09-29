@@ -262,4 +262,14 @@ legend {
   line-height: 14px;
   text-decoration: line-through;
   opacity: 0.5;
+}
+.main__task__item_label:checked ~ .main__task__item_checkbox {
+  color: #54595e;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  text-decoration: line-through;
+  opacity: 0.5;
 }/*# sourceMappingURL=style.css.map */

@@ -63,6 +63,7 @@
       justify-content: space-between;
       overflow: scroll;
       max-height: 400px;
+      
     }
     &_delete_hide {
       display: none;
@@ -108,7 +109,6 @@
       padding-left: 24px;
       padding-right: 24px;
       margin-top: 26px;
-
       &_label {
         width: 455px;
         word-wrap: break-word;
@@ -119,6 +119,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 14px;
+        
       }
       &_checkbox {
         width: 16px;
@@ -137,6 +138,16 @@
       }
     }
     &__item_checkbox:checked ~ &__item_label {
+      color: #54595e;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    &__item_label:checked ~ &__item_checkbox {
       color: #54595e;
       font-family: Inter;
       font-size: 16px;
