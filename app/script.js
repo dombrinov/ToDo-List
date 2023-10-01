@@ -43,14 +43,40 @@ function createTodo({ text, id, isDone }) {
   li.className = "main__task__item";
   li.innerHTML = `<input id="${id}" class='main__task__item_checkbox' type="checkbox" name="item"/>
     <label class='main__task__item_label' for="${id}">${text}</label>
-  <button class='main__task__item_delete'>❌</button>`;
+    <input class='main__task__item_edit_hidden' type="input" for="${id}" name="item" value="${text}"/><span class="span_edit_icons"></span>
+  <input id="${id}" class='main__task__item_checkbox_edit' type="checkbox" name="item"/>
+    <button class='main__task__item_delete'>🗑</button>`;
   // button "delete x"
   const del = li.querySelector(".main__task__item_delete");
   del.addEventListener("click", () => deleteTodo(id));
+  //checkbox & toggle isDone(completed task)
   const chb = li.querySelector(".main__task__item_checkbox");
   chb.addEventListener("change", () => toggleIsDone(id));
   chb.checked = isDone;
+  //edit toDo
+  const chbEdit = li.querySelector(".main__task__item_checkbox_edit");
+  const edit = li.querySelector(".main__task__item_edit_hidden");
+  const label = li.querySelector(".main__task__item_label");
+  const span = li.querySelector(".span_edit_icons");
+  edit.addEventListener("blur", () => editToDo(id));
+  chbEdit.addEventListener("change", () => showEdit(id));
+  
+  function editToDo(id) {
+    let object = toDo.find((item) => item.id == id);
+    object = object.text = edit.value;
 
+    localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
+    renderTodos(toDo);
+  }
+//toggle classes to make visible or unvisible tasks and edit
+  function showEdit(id) {
+    edit.classList.toggle("main__task__item_edit_visible");
+    edit.classList.toggle("main__task__item_edit_hidden");
+    label.classList.toggle("main__task__item_label");
+    label.classList.toggle("main__task__item_label_hidden");
+    span.classList.toggle("span_edit_icons");
+    span.classList.toggle("span_edit_icons_done");
+  }
   return li;
 }
 
