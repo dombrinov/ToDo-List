@@ -46,7 +46,7 @@ function createTodo({ text, id, isDone }) {
     <input class='main__task__item_edit_hidden' type="input" for="${id}" name="item" value="${text}"/><span class="span_edit_icons"></span>
   <input id="${id}" class='main__task__item_checkbox_edit' type="checkbox" name="item"/>
     <button class='main__task__item_delete'>🗑</button>`;
-  // button "delete x"
+  // button "delete 🗑"
   const del = li.querySelector(".main__task__item_delete");
   del.addEventListener("click", () => deleteTodo(id));
   //checkbox & toggle isDone(completed task)
@@ -60,7 +60,7 @@ function createTodo({ text, id, isDone }) {
   const span = li.querySelector(".span_edit_icons");
   edit.addEventListener("blur", () => editToDo(id));
   chbEdit.addEventListener("change", () => showEdit(id));
-  
+
   function editToDo(id) {
     let object = toDo.find((item) => item.id == id);
     object = object.text = edit.value;
@@ -68,7 +68,7 @@ function createTodo({ text, id, isDone }) {
     localStorage.setItem(ARR_TODO, JSON.stringify(toDo));
     renderTodos(toDo);
   }
-//toggle classes to make visible or unvisible tasks and edit
+  //toggle classes to make visible or unvisible tasks and edit
   function showEdit(id) {
     edit.classList.toggle("main__task__item_edit_visible");
     edit.classList.toggle("main__task__item_edit_hidden");
